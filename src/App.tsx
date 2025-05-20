@@ -7,6 +7,13 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import { InfiniteTableFusionLegacy } from '@icap/ui-core'
 import { InfiniteTableFusion } from '@icap/ui-core'
 
+// Import React 19 feature pages
+import ActionsDemo from './ActionsDemo'
+import DocumentMetadataDemo from './DocumentMetadataDemo'
+import AssetLoadingDemo from './AssetLoadingDemo'
+import SuspenseDemo from './SuspenseDemo'
+import HooksDemo from './HooksDemo'
+
 const data = [
   {
     id: 'id-0',
@@ -139,10 +146,15 @@ function App() {
     <BrowserRouter>
       <div className="app-container">
         <nav>
-          <ul style={{ display: 'flex', gap: '20px', listStyle: 'none', padding: '20px' }}>
+          <ul style={{ display: 'flex', gap: '20px', listStyle: 'none', padding: '20px', flexWrap: 'wrap' }}>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/data">Data Table</Link></li>
             <li><Link to="/about">About</Link></li>
+            <li><Link to="/actions">Actions</Link></li>
+            <li><Link to="/document-metadata">Document Metadata</Link></li>
+            <li><Link to="/asset-loading">Asset Loading</Link></li>
+            <li><Link to="/suspense">Suspense</Link></li>
+            <li><Link to="/hooks">Hooks</Link></li>
           </ul>
         </nav>
         
@@ -150,6 +162,11 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/data" element={<DataTable />} />
           <Route path="/about" element={<About />} />
+          <Route path="/actions" element={<ActionsDemo />} />
+          <Route path="/document-metadata" element={<DocumentMetadataDemo />} />
+          <Route path="/asset-loading" element={<AssetLoadingDemo />} />
+          <Route path="/suspense" element={<SuspenseDemo />} />
+          <Route path="/hooks" element={<HooksDemo />} />
         </Routes>
       </div>
     </BrowserRouter>
